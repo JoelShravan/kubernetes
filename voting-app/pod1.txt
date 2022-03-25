@@ -1,0 +1,59 @@
+Name:         worker-app-pod
+Namespace:    default
+Priority:     0
+Node:         minikube/192.168.59.103
+Start Time:   Thu, 17 Mar 2022 12:07:05 +0530
+Labels:       app=demo-voting-app
+              name=worker-app-pod
+Annotations:  <none>
+Status:       Running
+IP:           172.17.0.6
+IPs:
+  IP:  172.17.0.6
+Containers:
+  worker-app:
+    Container ID:   docker://e668329c78b3a832360c053ae2ea2f9460ea14b660eda71c1a45c5f68b9e9a26
+    Image:          kodekloud/examplevotingapp_worker:v1
+    Image ID:       docker-pullable://kodekloud/examplevotingapp_worker@sha256:741e3aaaa812af72ce0c7fc5889ba31c3f90c79e650c2cb31807fffc60622263
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Thu, 17 Mar 2022 12:10:04 +0530
+      Finished:     Thu, 17 Mar 2022 12:10:04 +0530
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Thu, 17 Mar 2022 12:08:42 +0530
+      Finished:     Thu, 17 Mar 2022 12:08:42 +0530
+    Ready:          False
+    Restart Count:  5
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lsqjx (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-lsqjx:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  3m10s                default-scheduler  Successfully assigned default/worker-app-pod to minikube
+  Normal   Pulled     93s (x5 over 3m9s)   kubelet            Container image "kodekloud/examplevotingapp_worker:v1" already present on machine
+  Normal   Created    93s (x5 over 3m9s)   kubelet            Created container worker-app
+  Normal   Started    93s (x5 over 3m9s)   kubelet            Started container worker-app
+  Warning  BackOff    78s (x10 over 3m7s)  kubelet            Back-off restarting failed container
